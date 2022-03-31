@@ -41,6 +41,7 @@ const TableWrapper = styled.div`
               cursor: pointer;
               height: 4.5rem;
               vertical-align: middle;
+              transition: all 200ms;
 
               td {
                 vertical-align: middle !important;
@@ -68,6 +69,10 @@ const TableWrapper = styled.div`
                     }
                   }
                 }
+              }
+
+              &:hover {
+                background: ${(props) => props.theme.body.BodyNeutralAlt};
               }
             }
           }

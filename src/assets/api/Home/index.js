@@ -1,3 +1,5 @@
+import { useSelector } from "react-redux";
+
 const point = "/images/tokens";
 
 export const TableTokenList = [
@@ -5,101 +7,51 @@ export const TableTokenList = [
     id: 1,
     img: point + "/SOL.png",
     AssetsName: "SOL",
-    LTV: "35%",
-    TotalSupply: "30,000,000 SOL",
-    SupplyAPY: "24%",
-    TotalBorrow: "19,399 SOL",
-    BorrowAPY: "150%",
   },
   {
     id: 2,
     img: point + "/mSOL.png",
     AssetsName: "mSOL",
-    LTV: "35%",
-    TotalSupply: "30,000,000 SOL",
-    SupplyAPY: "24%",
-    TotalBorrow: "19,399 SOL",
-    BorrowAPY: "150%",
   },
   {
     id: 3,
     img: point + "/stSOL.png",
     AssetsName: "stSOL",
-    LTV: "35%",
-    TotalSupply: "30,000,000 SOL",
-    SupplyAPY: "24%",
-    TotalBorrow: "19,399 SOL",
-    BorrowAPY: "150%",
   },
   {
     id: 4,
     img: point + "/scnSOL.png",
     AssetsName: "scnSOL",
-    LTV: "35%",
-    TotalSupply: "30,000,000 SOL",
-    SupplyAPY: "24%",
-    TotalBorrow: "19,399 SOL",
-    BorrowAPY: "150%",
   },
   {
     id: 5,
     img: point + "/BTC.png",
     AssetsName: "BTC",
-    LTV: "35%",
-    TotalSupply: "30,000,000 SOL",
-    SupplyAPY: "24%",
-    TotalBorrow: "19,399 SOL",
-    BorrowAPY: "150%",
   },
   {
     id: 6,
     img: point + "/ETH.png",
     AssetsName: "ETH",
-    LTV: "35%",
-    TotalSupply: "30,000,000 SOL",
-    SupplyAPY: "24%",
-    TotalBorrow: "19,399 SOL",
-    BorrowAPY: "150%",
   },
   {
     id: 7,
     img: point + "/SRM.png",
     AssetsName: "SRM",
-    LTV: "35%",
-    TotalSupply: "30,000,000 SOL",
-    SupplyAPY: "24%",
-    TotalBorrow: "19,399 SOL",
-    BorrowAPY: "150%",
   },
   {
     id: 8,
     img: point + "/USDT.png",
     AssetsName: "USDT",
-    LTV: "35%",
-    TotalSupply: "30,000,000 SOL",
-    SupplyAPY: "24%",
-    TotalBorrow: "19,399 SOL",
-    BorrowAPY: "150%",
   },
   {
     id: 9,
     img: point + "/USDC.png",
     AssetsName: "USDC",
-    LTV: "35%",
-    TotalSupply: "30,000,000 SOL",
-    SupplyAPY: "24%",
-    TotalBorrow: "19,399 SOL",
-    BorrowAPY: "150%",
   },
   {
     id: 10,
     img: point + "/UST.png",
     AssetsName: "UST",
-    LTV: "35%",
-    TotalSupply: "30,000,000 SOL",
-    SupplyAPY: "24%",
-    TotalBorrow: "19,399 SOL",
-    BorrowAPY: "150%",
   },
 ];
 
@@ -129,3 +81,30 @@ export const AssetsHeaderList = [
     name: "Borrow APY",
   },
 ];
+
+export const TableTokenListApi = () => {
+  const PoolAssetsState = useSelector((state) => state.PoolAssetsReducer);
+
+  const { PoolAssetsList } = PoolAssetsState;
+
+  console.log(PoolAssetsList);
+  console.log(PoolAssetsList.length);
+
+  var PoolAssetsListApi = [];
+
+  for (var i = 0; i < PoolAssetsList.length; i++) {
+    for (var j = 0; j < TableTokenList.length; j++) {
+      if (PoolAssetsList[i].AssetName === TableTokenList[j].AssetsName) {
+        PoolAssetsListApi.push({
+          ...TableTokenList[j],
+          LTV: PoolAssetsList[i].LTV,
+          TotalSupply: PoolAssetsList[i].TotalSupply,
+          SupplyAPY: PoolAssetsList[i].SupplyAPY,
+          TotalBorrowed: PoolAssetsList[i].TotalBorrowed,
+          BorrowAPY: PoolAssetsList[i].BorrowAPY,
+        });
+      }
+    }
+  }
+  return PoolAssetsListApi;
+};
