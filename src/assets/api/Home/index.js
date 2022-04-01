@@ -76,19 +76,12 @@ export const AssetsHeaderList = [
     id: 5,
     name: "Total borrow",
   },
-  {
-    id: 6,
-    name: "Borrow APY",
-  },
 ];
 
 export const TableTokenListApi = () => {
   const PoolAssetsState = useSelector((state) => state.PoolAssetsReducer);
 
   const { PoolAssetsList } = PoolAssetsState;
-
-  console.log(PoolAssetsList);
-  console.log(PoolAssetsList.length);
 
   var PoolAssetsListApi = [];
 
@@ -101,7 +94,6 @@ export const TableTokenListApi = () => {
           TotalSupply: PoolAssetsList[i].TotalSupply,
           SupplyAPY: PoolAssetsList[i].SupplyAPY,
           TotalBorrowed: PoolAssetsList[i].TotalBorrowed,
-          BorrowAPY: PoolAssetsList[i].BorrowAPY,
         });
       }
     }

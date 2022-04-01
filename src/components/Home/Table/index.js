@@ -45,7 +45,6 @@ const Table = ({ process, status }) => {
                                 <img src={list.img} alt="Loading..." />
                                 <div className="token_name pl-3">
                                   <p>{list.AssetsName}</p>
-                                  {/* <span>$120.3</span> */}
                                 </div>
                               </div>
                             </td>
@@ -71,11 +70,6 @@ const Table = ({ process, status }) => {
                                 <p>
                                   {list.TotalBorrowed} {list.AssetsName}
                                 </p>
-                              </div>
-                            </td>
-                            <td>
-                              <div className="table_list">
-                                <p>{list.BorrowAPY}%</p>
                               </div>
                             </td>
                           </tr>
