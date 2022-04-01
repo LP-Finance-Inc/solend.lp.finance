@@ -1,5 +1,4 @@
 import { getPoolAssetsInfo } from "../../../utils/getPoolAssetsInfo";
-import { TableTokenList } from "../../../assets/api/Home";
 
 export const getPoolAssetsInfoFun = () => {
   return async (dispatch) => {
@@ -8,18 +7,11 @@ export const getPoolAssetsInfoFun = () => {
         type: "SEND_POOL_ASSETS_PROGRESS",
       });
 
-      const CreatePoolAssetsList = [];
-
-      for (var i = 0; i < TableTokenList.length; i++) {
-        const PoolAssetsObj = await getPoolAssetsInfo(
-          TableTokenList[i].AssetsName
-        );
-        CreatePoolAssetsList.push(PoolAssetsObj);
-      }
+      const PoolAssetsObj = await getPoolAssetsInfo();
 
       dispatch({
         type: "SEND_POOL_ASSETS_INFO",
-        payload: CreatePoolAssetsList,
+        payload: PoolAssetsObj,
       });
     } catch (error) {
       dispatch({
