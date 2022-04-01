@@ -8,7 +8,7 @@ const Table = ({ process, status }) => {
 
   return (
     <TableWrapper>
-      <div className="container assets mt-2 pb-3">
+      <div className="container assets mt-lg-2 mt-md-2 mt-4 pb-3">
         <div className="row pl-lg-2 pr-lg-2">
           <div className="col-12">
             <div className="title">

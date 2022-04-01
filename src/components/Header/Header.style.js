@@ -17,6 +17,12 @@ const HeaderWrapper = styled.div`
           width: auto;
         }
       }
+
+      .left_ui_block_hide {
+        li {
+          padding-right: 80px;
+        }
+      }
     }
   }
 
@@ -79,6 +85,12 @@ const HeaderWrapper = styled.div`
           img {
             height: 50px;
             width: auto;
+          }
+        }
+
+        .left_ui_block_hide {
+          li {
+            padding-right: 10px;
           }
         }
       }
