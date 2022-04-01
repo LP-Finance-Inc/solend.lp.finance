@@ -43,8 +43,6 @@ export const getPoolAssetsInfo = async (Token) => {
       TokenPoolAssetsInfoObjet.push(resultObject);
     }
 
-    console.log(TokenPoolAssetsInfoObjet);
-
     return TokenPoolAssetsInfoObjet;
   } catch (err) {
     const TokenPoolAssetsInfoObjet = {
