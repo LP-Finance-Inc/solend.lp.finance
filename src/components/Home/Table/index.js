@@ -2,6 +2,7 @@ import React from "react";
 import TableWrapper from "./Table.style";
 import { AssetsHeaderList, TableTokenListApi } from "../../../assets/api/Home";
 import Loader from "../../Loader";
+import { CalcTwoDigit } from "../../../helper";
 
 const Table = ({ process, status }) => {
   const PoolAssetsListApi = TableTokenListApi();
@@ -62,7 +63,7 @@ const Table = ({ process, status }) => {
                             </td>
                             <td>
                               <div className="table_list">
-                                <p>{list.SupplyAPY}%</p>
+                                <p>{CalcTwoDigit(list.SupplyAPY)}%</p>
                               </div>
                             </td>
                             <td>
