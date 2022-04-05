@@ -22,8 +22,8 @@ export const getPoolAssetsInfo = async (Token) => {
 
     await market.loadReserves();
 
-    let TokenPoolAssetsInfoObjet = [];
-    for (let i = 0; i < market.reserves.length; i++) {
+    var TokenPoolAssetsInfoObjet = [];
+    for (var i = 0; i < market.reserves.length; i++) {
       const assetReserve = market.reserves[i];
 
       const resultObject = {
@@ -43,16 +43,8 @@ export const getPoolAssetsInfo = async (Token) => {
       TokenPoolAssetsInfoObjet.push(resultObject);
     }
 
-    return TokenPoolAssetsInfoObjet;
-  } catch (err) {
-    const TokenPoolAssetsInfoObjet = {
-      AssetName: "",
-      LTV: 0,
-      TotalSupply: 0,
-      SupplyAPY: 0,
-      TotalBorrowed: 0,
-    };
+    market.refreshAll();
 
     return TokenPoolAssetsInfoObjet;
-  }
+  } catch (err) {}
 };
