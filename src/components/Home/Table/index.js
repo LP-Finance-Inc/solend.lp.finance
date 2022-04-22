@@ -2,7 +2,7 @@ import React from "react";
 import TableWrapper from "./Table.style";
 import { AssetsHeaderList, TableTokenListApi } from "../../../assets/api/Home";
 import Loader from "../../Loader";
-import { CalcTwoDigit } from "../../../helper";
+import { CalcTwoDigit, numFormatter } from "../../../helper";
 
 const Table = ({ process, status }) => {
   const PoolAssetsListApi = TableTokenListApi();
@@ -57,7 +57,8 @@ const Table = ({ process, status }) => {
                             <td>
                               <div className="table_list">
                                 <p>
-                                  {list.TotalSupply} {list.AssetsName}
+                                  {numFormatter(list.TotalSupply)}{" "}
+                                  {list.AssetsName}
                                 </p>
                               </div>
                             </td>
@@ -69,7 +70,8 @@ const Table = ({ process, status }) => {
                             <td>
                               <div className="table_list">
                                 <p>
-                                  {list.TotalBorrowed} {list.AssetsName}
+                                  {numFormatter(list.TotalBorrowed)}{" "}
+                                  {list.AssetsName}
                                 </p>
                               </div>
                             </td>

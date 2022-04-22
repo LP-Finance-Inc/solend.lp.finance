@@ -1,7 +1,10 @@
 import React from "react";
 import PoolOverviewWrapper from "./PoolOverview.style";
+import { TableTokenListApi } from "../../../assets/api/Home";
 
 const PoolOverview = () => {
+  const PoolAssetsListApi = TableTokenListApi();
+
   return (
     <PoolOverviewWrapper>
       <div className="container poolOverview mt-4 pt-1">
@@ -36,7 +39,9 @@ const PoolOverview = () => {
                 <div className="col-lg-3 col-md-3 col-6  d-lg-flex justify-content-lg-start mt-lg-0 mt-md-0 mt-2">
                   <div className="poolOverview_card">
                     <span>Assets</span>
-                    <p className="pt-1">20</p>
+                    <p className="pt-1">
+                      {PoolAssetsListApi && PoolAssetsListApi.length}{" "}
+                    </p>
                   </div>
                 </div>
               </div>
