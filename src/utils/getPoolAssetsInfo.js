@@ -1,6 +1,6 @@
 import * as anchor from "@project-serum/anchor";
 import { SolendMarket } from "@solendprotocol/solend-sdk";
-import { NETWORK } from "../lib/constants/common";
+import { NETWORK_MAINNET } from "../lib/constants/common";
 
 const { Connection } = anchor.web3;
 
@@ -16,7 +16,7 @@ const getParsedAmount = (amount_str) => {
 
 export const getPoolAssetsInfo = async (Token) => {
   try {
-    const connection = new Connection(NETWORK, "processed");
+    const connection = new Connection(NETWORK_MAINNET, "processed");
 
     const market = await SolendMarket.initialize(connection);
 
